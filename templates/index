@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Fun Robotics with Dr. L!!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f0f8ff;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .section-title {
+      margin-top: 40px;
+      font-size: 24px;
+      color: #34495e;
+    }
+    .button {
+      font-size: 18px;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #3498db;
+      color: white;
+      transition: background-color 0.2s;
+    }
+    .button:hover {
+      background-color: #2980b9;
+    }
+    .stop-button {
+      background-color: #e74c3c;
+    }
+    .stop-button:hover {
+      background-color: #c0392b;
+    }
+    .sensor-display {
+      margin-top: 20px;
+      font-size: 36px;
+      font-weight: bold;
+      color: #e74c3c;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      display: inline-block;
+      padding: 10px 30px;
+      background-color: #fff;
+    }
+    .camera-image {
+      margin-top: 20px;
+      border: 3px solid #666;
+      border-radius: 12px;
+      max-width: 90%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fun Robotics with Dr. L!!</h1>
+
+  <!-- Section 1: Motor Control -->
+  <div class="section-title">Motor Control</div>
+  <button class="button" onclick="location.href='/forward'">Left</button>
+  <button class="button" onclick="location.href='/reverse'">Right</button>
+  <div>
+  <button class="button" onclick="location.href='/up'">Up</button>
+  <button class="button" onclick="location.href='/down'">Down</button>
+  <div>
+  <button class="button stop-button" onclick="location.href='/stop'">Stop</button>
+
+  <!-- Section 1: Spray Relay Control -->
+  <div class="section-title">Spray Relay Control</div>
+  <button class="button" onclick="location.href='/forward'">Spray</button>
+
+
+  
+  
+  <!-- Section 2: Ultrasonic Sensor -->
+  <div class="section-title">Ultrasonic Sensor Data</div>
+  <div class="sensor-display" id="distanceBox">-- mm</div>
+
+#   <!-- Section 3: Snap an Image -->
+#   <div class="section-title">Snap an Image</div>
+#   <button class="button" onclick="location.href='/capture'">Snap</button>
+#   <button class="button" onclick="location.href='/delete'">Delete</button>
+# 
+#   <!-- Display Captured Image -->
+#   <div>
+#     <img src="/image" id="cameraImage" class="camera-image" alt="Captured image will appear here" onerror="this.style.display='none';" />
+#   </div>
+    <img src="{{ url_for('static', filename='photo.jpg') }}" alt="Captured Image" width=" <section>
+    
+  <!-- Livestreaming -->
+  </div>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+  </div>
+  
+  
+
+  <!-- Section 4: Testing -->
+  <div class="section-title">Testing</div>
+
+  <form action="/test" method="POST">
+    <button type="submit">Test</button>
+  </form>
+  
+   <p>Output:</p>
+  <input type="text" id="outputBox" value="{{ result }}" readonly>
+
+</body>
+</html>
+
